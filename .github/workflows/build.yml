@@ -1,0 +1,92 @@
+#=================================================
+# Description: Build ubports using GitHub Actions
+# Lisence: MIT
+#=================================================
+
+name: Build System Image
+
+on: 
+  push:
+    branches:
+      - ut-5.1
+  schedule:
+    - cron: 0 8 * * 0 
+
+env:
+  SSH_ACTIONS: false
+
+jobs:
+
+  build:
+    runs-on: ubuntu-16.04
+
+    env:
+      DEVICE: onyx
+      ANDROID_ROOT: /home/runner/work/halium/
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+    
+    - name: Initialization environment
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+        openjdk-8-jdk android-tools-adb bc \
+        bison build-essential curl flex g++-multilib m4 libxml2-utils \
+        gcc-multilib gnupg gperf imagemagick lib32ncurses5-dev \
+        lib32readline-dev lib32z1-dev libesd0-dev liblz4-tool \
+        libncurses5-dev libsdl1.2-dev libssl-dev repo libwxgtk3.0-dev \
+        libxml2 libxml2-utils lzop pngcrush rsync schedtool \
+        squashfs-tools xsltproc yasm zip zlib1g-dev git
+        sudo docker rmi `docker images -q`
+        sudo rm -rf \
+          /usr/share/dotnet \
+          /etc/mysql \
+          /etc/php
+        mkdir -p ~/bin
+        wget 'https://storage.googleapis.com/git-repo-downloads/repo' -P ~/bin
+        chmod +x ~/bin/repo
+        git config --global user.name "ittat"
+        git config --global user.email "ittat@github.com"
+    - name: Downloading source code
+      run: |
+        source halium.env
+        mkdir -p $ANDROID_ROOT
+        cd $ANDROID_ROOT
+        repo init -u https://github.com/Halium/android -b halium-5.1 --depth=1
+        repo sync -j8 -c --no-clone-bundle --no-tags
+        
+    - name: Clone device spec source
+      run: |
+        source halium.env
+        git clone https://github.com/ittat/ubport_device_oneplus_onyx.git  -b ubports5.1  $ANDROID_ROOT/device/oneplus/onyx --depth=1
+        git clone https://github.com/ubports-onyx/android_device_oppo_common.git  -b ut-5.1   $ANDROID_ROOT/device/oppo/common --depth=1
+        git clone https://github.com/ittat/kernel_oneplus_onyx.git  -b ut-5.1 $ANDROID_ROOT/kernel/oneplus/onyx --depth=1
+        git clone https://github.com/ubports-onyx/vendor_oneplus.git  -b ut-5.1  $ANDROID_ROOT/vendor/oneplus --depth=1
+        
+        git clone https://github.com/CyanogenMod/android_device_qcom_common.git  -b cm-12.1   $ANDROID_ROOT/device/qcom/common --depth=1
+        git clone https://github.com/CyanogenMod/android_device_qcom_sepolicy.git   -b cm-12.1   $ANDROID_ROOT/device/qcom/sepolicy --depth=1
+        git clone https://github.com/CyanogenMod/android_external_ant-wireless_antradio-library.git  -b cm-12.1  $ANDROID_ROOT/external/ant-wireless/antradio-library --depth=1
+        
+    - name: SSH connection to Actions
+      uses: P3TERX/debugger-action@master
+      if: env.SSH_ACTIONS == 'true'
+
+    - name: Build HAL
+      run: |
+        chmod +x build-hal.sh
+        bash -x build-hal.sh
+      shell: bash
+
+    - name : Upload halium boot image
+      uses: actions/upload-artifact@master
+      with:
+        name: halium-boot image
+        path: /home/runner/work/halium/out/target/product/onyx/halium-boot.img
+
+    - name : Upload system image
+      uses: actions/upload-artifact@master
+      with:
+        name: System image
+path: /home/runner/work/halium/out/target/product/onyx/system.img 
