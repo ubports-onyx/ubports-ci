@@ -36,7 +36,7 @@ This repository enables images to be built from GitHub Actions.
    * Prerequisites: Unlocked bootloader , PC
    * TWRP from Official Twrp site and flash it into your OneplusX
    * You need system.img , halium-boot and latest ubports-touch rootfs
-   * Download system & halium-boot from [here](https://github.com/ut-on-garlic/ubports-ci)
+   * Download system & halium-boot from [here](https://github.com/ubports-onyx/ubports-ci/actions)
    * Download [ubports-touch.rootfs-xenial-armhf.tar.gz](https://ci.ubports.com/job/xenial-rootfs-armhf/)
    * Clone or download the [halium-install repository](https://gitlab.com/JBBgameich/halium-install)
    * reboot your phone to TWRP and  wipe Data partitions and make sure partitions are ext4
