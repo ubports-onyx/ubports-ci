@@ -6,30 +6,30 @@ This repository enables images to be built from GitHub Actions.
 |:------------:|:------------:|
 | ![Build System Image](https://github.com/ubports-onyx/ubports-ci/workflows/Build%20System%20Image/badge.svg?branch=ut-7.1) |        ![Build System Image](https://github.com/ubports-onyx/ubports-ci/workflows/Build%20System%20Image/badge.svg?branch=ut-5.1)   |
 | [Download](https://github.com/ubports-onyx/ubports-ci/actions) | [Download](https://github.com/ubports-onyx/ubports-ci/actions)                    | 
+| [source tree](https://github.com/ubports-onyx/halium-devices/blob/halium-7.1/manifests/oneplus_onyx.xml)  |   [source tree](https://github.com/ubports-onyx/halium-devices/blob/halium-5.1/manifests/oneplus_onyx.xml)   |
+
 
 ### What working or Missing:  
 |            |      Ubuntu Touch 7.1          |                   Ubuntu Touch 5.1                    | 
 |:------------:|:------------:|:------------:|
-| Ril | [x]    | [x]   |
-| Sound | [x]    | [x]   |
-| Touch | [x]    | [x]   |
-| Wifi | [x]    | [x]   |
-| GPS | [x]    | [ ]   |
-| Vibration | [x]    | [x]   |
-| Orientation sensor | [x]    | [x]   |
-| Anbox | [ ]    | [x]   |
-| Bluetooth | [x]    | [x]   |
-| Flash light | [x]    | [x]   |
-| MTP | [ ]    | [x]   |
-| Libertine | [ ]    | [ ]   |
-| camera | [ ]    | [ ]   |
-| notification lights | [*]    | [*]   |
-| Hotspot | [ ]    | [ ]   |
-| apparmor | [ ]    | [ ]   |
-| Light Sensor | [ ]    | [ ]   |
-| Battery | [ ]    | [ ]   |
-| Light Sensor | [ ]    | [ ]   |
-| Light Sensor | [ ]    | [ ]   |
+| Ril |  OK   |    OK   |
+| Sound | OK    | OK   |
+| Touch | OK    | OK   |
+| Wifi | OK    | OK   |
+| notification lights | OK    | OK  |
+| Vibration | OK    | OK   |
+| Orientation sensor | OK    | OK   |
+| Bluetooth | OK    | OK   |
+| Flash light |  OK    | OK   |
+| MTP | NO    | OK  |
+| apparmor | OK    | OK   |
+| Light Sensor | OK    | OK   |
+| Battery | OK    | OK   |
+| GPS | OK    |  NO   |
+| Anbox | Unknow    | OK   |
+| Libertine | NO    | NO   |
+| camera | NO    | NO   |
+| Hotspot | Unknow    | Unknow   |
 | more |  ...    | ...   |
 
 ### Install:  
@@ -43,4 +43,5 @@ This repository enables images to be built from GitHub Actions.
    * do "path/to/halium-install -p ut path/to/rootfs.tar.gz path/to/system.img"
    * Enjoy  
 More detail about install ubuntu touch in [here](http://docs.ubports.com/en/latest/porting/installing-16-04.html#installing-ubuntu-touch-16-04-images-on-halium) 
+
     
