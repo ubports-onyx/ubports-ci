@@ -89,4 +89,4 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: System image
-path: /home/runner/work/halium/out/target/product/onyx/system.img 
+        path: /home/runner/work/halium/out/target/product/onyx/system.img 
