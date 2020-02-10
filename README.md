@@ -15,7 +15,7 @@ This repository enables images to be built from GitHub Actions.
 | Ril |  OK   |    OK   |
 | Sound | OK    |  OK  |
 | Touch | OK    | OK   |
-| Wifi | OK    | OK   |
+| Wifi | OK    |  ？   |
 | notification lights | OK    | OK  |
 | Vibration | OK    | OK   |
 | Orientation sensor | OK    | OK   |
@@ -25,14 +25,14 @@ This repository enables images to be built from GitHub Actions.
 | apparmor | OK    | OK   |
 | Light Sensor | OK    | OK   |
 | Battery | OK    | OK   |
-| GPS | OK    |  ?   |
+| GPS | OK    |  Unknow   |
 | Anbox | OK    | OK   |
 | Libertine | **NO**    | **NO**   |
 | camera | **NO**    | **NO**   |
 | Hotspot | Unknow    | Unknow   |
 | more |  ...    | ...   |
 
-Legend:  ? - porting
+Legend:  ? - Works but need via command line manually
 
 ### Note:
   1. Ubuntu Touch 5.1 REQUIRES OXYGENOS 2.1.3 FIRMWARE!
