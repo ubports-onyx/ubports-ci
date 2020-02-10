@@ -45,7 +45,7 @@ Legend:  ? - Works but need via command line manually
    - TWRP from Official Twrp site and flash it into your OneplusX
    - You need system.img , halium-boot and latest ubports-touch rootfs
    - Download system & halium-boot from [here](https://github.com/ubports-onyx/ubports-ci/actions)
-   - Download [ubports-touch.rootfs-xenial-armhf.tar.gz](https://ci.ubports.com/job/xenial-rootfs-armhf/)
+   - Download [ubports-touch.rootfs-xenial-armhf.tar.gz](https://github.com/ubports-onyx/ubports-ci/releases/tag/ubports-touch.rootfs-xenial)
    - Clone or download the [halium-install repository](https://gitlab.com/JBBgameich/halium-install)
    - reboot your phone to TWRP and  wipe Data partitions and make sure partitions are ext4
    - do "path/to/halium-install -p ut path/to/rootfs.tar.gz path/to/system.img"
