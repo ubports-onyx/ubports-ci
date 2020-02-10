@@ -24,8 +24,8 @@ This repository enables images to be built from GitHub Actions.
 | MTP | **NO**   | OK  |
 | apparmor | OK    | OK   |
 | Light Sensor | OK    | OK   |
-| Battery | OK    | ?   |
-| GPS | OK    |  Untest   |
+| Battery | OK    | OK   |
+| GPS | OK    |  ?   |
 | Anbox | OK    | OK   |
 | Libertine | **NO**    | **NO**   |
 | camera | **NO**    | **NO**   |
