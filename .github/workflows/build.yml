@@ -6,11 +6,11 @@
 name: Build System Image
 
 on: 
-  push:
-    branches:
-      - ut-7.1
+#  push:
+#    branches:
+#      - ut-7.1
   schedule:
-    - cron: 0 8 * * 0 
+    - cron: 0 8  1 * ?
 
 env:
   SSH_ACTIONS: false
