@@ -48,7 +48,8 @@ Legend:  ? - Works but need via command line manually
    - Download [ubports-touch.rootfs-xenial-armhf.tar.gz](https://github.com/ubports-onyx/ubports-ci/releases/tag/ubports-touch.rootfs-xenial)
    - Clone or download the [halium-install repository](https://gitlab.com/JBBgameich/halium-install)
    - reboot your phone to TWRP and  wipe Data partitions and make sure partitions are ext4
-   - do "path/to/halium-install -p ut path/to/rootfs.tar.gz path/to/system.img"
+   - flash halium-boot.img to boot partition using TWRP.
+   - do "path/to/halium-install -p ut path/to/rootfs.tar.gz path/to/system.img" though ADB.
    - Enjoy  
 
 More detail about install ubuntu touch in [here](http://docs.ubports.com/en/latest/porting/installing-16-04.html#installing-ubuntu-touch-16-04-images-on-halium) 
