@@ -49,7 +49,7 @@ Legend:  ? - Works but need via command line manually
    - Clone or download the [halium-install repository](https://gitlab.com/JBBgameich/halium-install)
    - reboot your phone to TWRP and  wipe Data partitions and make sure partitions are ext4
    - flash halium-boot.img to boot partition using TWRP.
-   - do "path/to/halium-install -p ut path/to/rootfs.tar.gz path/to/system.img" though ADB.
+   - do "path/to/halium-install -p ut path/to/rootfs.tar.gz path/to/system.img" through ADB.
    - Enjoy  
 
 More detail about install ubuntu touch in [here](http://docs.ubports.com/en/latest/porting/installing-16-04.html#installing-ubuntu-touch-16-04-images-on-halium) 
