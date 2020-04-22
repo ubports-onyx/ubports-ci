@@ -29,7 +29,7 @@ This repository enables images to be built from GitHub Actions.
 | Anbox | OK    | OK   |
 | Libertine | **NO**    | **NO**   |
 | camera | **NO**    | **NO**   |
-| Hotspot | Unknow    | Unknow   |
+| Hotspot | OK    | Unknow   |
 | more |  ...    | ...   |
 
 Legend:  ? - Works but need via command line manually
