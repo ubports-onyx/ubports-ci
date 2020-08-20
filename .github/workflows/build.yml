@@ -6,9 +6,9 @@
 name: Build System Image
 
 on: 
-  push:
-    branches:
-      - ut-5.1
+#  push:
+#    branches:
+#      - ut-5.1
   schedule:
     - cron: 0 8 * * 0 
 
