@@ -3,17 +3,14 @@
 # Lisence: MIT
 #=================================================
 
-name: Build System Image
-
+name: Build Ubport 7.1
 on: 
 #  push:
 #    branches:
 #      - ut-7.1
+  workflow_dispatch:
   schedule:
     - cron: 0 8  1 * ?
-
-env:
-  SSH_ACTIONS: false
 
 jobs:
 
@@ -27,6 +24,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@master
+      with:
+        ref: ut-7.1
     
     - name: Initialization environment
       run: |
@@ -49,33 +48,29 @@ jobs:
         chmod +x ~/bin/repo
         git config --global user.name "ittat"
         git config --global user.email "ittat@github.com"
+        
     - name: Downloading source code
       run: |
-        source halium.env
+        source halium.env 
         mkdir -p $ANDROID_ROOT
         cd $ANDROID_ROOT
         repo init -u https://github.com/Halium/android -b halium-7.1 --depth=1
         repo sync -j8 -c --no-clone-bundle --no-tags
         
-
     - name: Clone device spec source
       run: |
-        source halium.env
-        git clone https://github.com/ittat/device_oneplus_onyx.git  -b ut-7.1  $ANDROID_ROOT/device/oneplus/onyx --depth=1
-        git clone https://github.com/ubports-onyx/android_device_oppo_common.git  -b ut-7.1   $ANDROID_ROOT/device/oppo/common --depth=1
-        git clone https://github.com/ittat/kernel_oneplus_onyx.git  -b ut-7.1 $ANDROID_ROOT/kernel/oneplus/onyx --depth=1
-        git clone https://github.com/ubports-onyx/vendor_oneplus.git  -b ut-7.1  $ANDROID_ROOT/vendor/oneplus --depth=1
-
-    - name: SSH connection to Actions
-      uses: P3TERX/debugger-action@master
-      if: env.SSH_ACTIONS == 'true'
-
+        source halium.env 
+        git clone https://github.com/OnePlus-onyx/device_oneplus_onyx.git  -b ut-7.1  $ANDROID_ROOT/device/oneplus/onyx --depth=1
+        git clone https://github.com/OnePlus-onyx/android_device_oppo_common.git  -b ut-7.1   $ANDROID_ROOT/device/oppo/common --depth=1
+        git clone https://github.com/OnePlus-onyx/kernel_oneplus_onyx.git  -b ut-7.1 $ANDROID_ROOT/kernel/oneplus/onyx --depth=1
+        git clone https://github.com/OnePlus-onyx/proprietary_vendor_oneplus.git  -b ut-7.1  $ANDROID_ROOT/vendor/oneplus --depth=1
+        
     - name: Build HAL
       run: |
         chmod +x build-hal.sh
         bash -x build-hal.sh
       shell: bash
-
+      
     - name : Upload boot image
       uses: actions/upload-artifact@master
       with:
@@ -87,5 +82,9 @@ jobs:
       with:
         name: System image
         path: /home/runner/work/halium/out/target/product/onyx/system.img 
-
+        
+    - name: Done
+      run: |
+        cd $ANDROID_ROOT
+        sudo rm -r ./*
 
