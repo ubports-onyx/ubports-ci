@@ -43,9 +43,15 @@ jobs:
           /usr/share/dotnet \
           /etc/mysql \
           /etc/php
+        
+        #install repo 
         mkdir -p ~/bin
-        wget 'https://storage.googleapis.com/git-repo-downloads/repo' -P ~/bin
-        chmod +x ~/bin/repo
+        #if use python2
+        curl https://storage.googleapis.com/git-repo-downloads/repo-1 > ~/bin/repo
+        #if use python3
+        #curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+        chmod a+x ~/bin/repo
+
         git config --global user.name "ittat"
         git config --global user.email "ittat@github.com"
         
@@ -54,7 +60,8 @@ jobs:
         source halium.env 
         mkdir -p $ANDROID_ROOT
         cd $ANDROID_ROOT
-        repo init -u https://github.com/Halium/android -b halium-7.1 --depth=1
+        python2.7 ~/bin/repo init -u https://github.com/Halium/android -b halium-7.1 --depth=1
+        #python3.7 ~/bin/repo init -u git@github.com:Halium/android.git -b halium-7.1 --depth=1
         repo sync -j8 -c --no-clone-bundle --no-tags
         
     - name: Clone device spec source
