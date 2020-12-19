@@ -4,7 +4,7 @@ This repository enables images to be built from GitHub Actions.
 ## Building Status:  
 |                 Ubuntu Touch 7.1          |                  Ubuntu Touch 5.1                    | 
 |:------------:|:------------:|
-| ![Build System Image](https://github.com/ubports-onyx/ubports-ci/workflows/Build%20System%20Image/badge.svg?branch=ut-7.1) |        ![Build System Image](https://github.com/ubports-onyx/ubports-ci/workflows/Build%20System%20Image/badge.svg?branch=ut-5.1)   |
+| ![Build System Image](https://github.com/ubports-onyx/ubports-ci/workflows/Build%20Ubport%207.1/badge.svg?branch=ut-7.1) |        ![Build System Image](https://github.com/ubports-onyx/ubports-ci/workflows/Build%20System%20Image/badge.svg?branch=ut-5.1)   |
 | [Download](https://github.com/ubports-onyx/ubports-ci/actions?query=branch%3Aut-7.1) | [Download](https://github.com/ubports-onyx/ubports-ci/actions?query=branch%3Aut-5.1)                    | 
 | [source tree](https://github.com/ubports-onyx/halium-devices/blob/halium-7.1/manifests/oneplus_onyx.xml)  |   [source tree](https://github.com/ubports-onyx/halium-devices/blob/halium-5.1/manifests/oneplus_onyx.xml)   |
 
